@@ -16,7 +16,7 @@ function App() {
         <section>
           <SimpleGrid columns={3} spacing={5}>
             <Toggle title="testing one" />
-            <Toggle title="testing two" />
+            <Toggle title="testing two" selectValues={[10, 50, 100]} />
             <Toggle title="testing three" />
             <Toggle title="testing four" />
             <Toggle title="testing five" />
