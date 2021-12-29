@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Spacer, Switch, Select } from "@chakra-ui/react";
-import React from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 const Square = styled("span")`
@@ -12,14 +12,25 @@ const Square = styled("span")`
   vertical-align: middle;
 `;
 
-type ToggleProps = {
+export type ToggleProps = {
   title: string;
   selectValues?: number[];
   children?: JSX.Element[];
 };
 
-function Toggle({ title, selectValues, children }: ToggleProps) {
+export function Toggle({ title, selectValues, children }: ToggleProps) {
+  const [checked, setChecked] = useState(false);
   const titleAs = children ? "h2" : "h3";
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setChecked(!checked);
+  };
+
+  useEffect(() => {
+    if (checked) {
+    }
+  }, [checked]);
+
   return (
     <Flex bg="gray.900" p={4}>
       <Box>
@@ -35,16 +46,16 @@ function Toggle({ title, selectValues, children }: ToggleProps) {
         <Box mr={4}>
           <Select size="xs">
             {selectValues.map((v) => (
-              <option value={v}>{v}</option>
+              <option key={`option_${v}`} value={v}>
+                {v}
+              </option>
             ))}
           </Select>
         </Box>
       )}
       <Box>
-        <Switch size="sm" />
+        <Switch size="sm" checked={checked} onChange={handleChange} />
       </Box>
     </Flex>
   );
 }
-
-export default Toggle;
