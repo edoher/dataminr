@@ -1,13 +1,22 @@
+import { Container, Heading } from "@chakra-ui/react";
 import React from "react";
 import "./App.css";
+import Toggle from "./components/toggle/Toggle";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Dataminr App!</h1>
-      </header>
-      <section>Testing app FONT</section>
+      <Container maxW="container.lg">
+        <header>
+          <Heading as={"h1"} size="lg">
+            <span className="toggle-header"></span>
+            Dataminr App!
+          </Heading>
+        </header>
+        <section>
+          <Toggle title="testing testing" />
+        </section>
+      </Container>
     </div>
   );
 }

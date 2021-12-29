@@ -1,5 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Signika&display=swap");
 
 .App {
   font-family: "Signika", sans-serif;
+  background: black;
+  color: white;
+  min-height: 100vh;
+  text-transform: uppercase;
 }
