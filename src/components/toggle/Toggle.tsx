@@ -16,6 +16,7 @@ const Square = styled("span")`
 
 export type ToggleType = {
   title: string;
+  value: string;
   selectValues?: number[];
 };
 
@@ -26,6 +27,7 @@ export type ToggleProps = ToggleType & {
 
 export function Toggle({
   title,
+  value,
   selectValues,
   children,
   isChild,
@@ -65,7 +67,12 @@ export function Toggle({
           </Box>
         )}
         <Box>
-          <Switch size="sm" checked={checked} onChange={handleChange} />
+          <Switch
+            size="sm"
+            checked={checked}
+            onChange={handleChange}
+            value={value}
+          />
           {children?.length && !checked && <ChevronDownIcon ml={2} />}
           {children?.length && checked && <ChevronUpIcon ml={2} />}
         </Box>

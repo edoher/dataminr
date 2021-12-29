@@ -6,31 +6,39 @@ import { Toggle, ToggleProps } from "./components/toggle/Toggle";
 const formScheme: ToggleProps[] = [
   {
     title: "testing one",
+    value: "one",
   },
   {
     title: "testing two",
+    value: "two",
     selectValues: [10, 50, 100],
   },
   {
     title: "testing three",
+    value: "three",
     children: [
       {
         title: "I'm a child!",
+        value: "a",
       },
       {
         title: "Me too",
+        value: "b",
         selectValues: [10, 50, 100],
       },
       {
         title: "And me!",
+        value: "c",
       },
     ],
   },
   {
     title: "testing four",
+    value: "four",
   },
   {
     title: "testing five",
+    value: "five",
   },
 ];
 
@@ -50,6 +58,7 @@ function App() {
               <Box key={`toggle${t.title}`}>
                 <Toggle
                   title={t.title}
+                  value={t.value}
                   selectValues={t?.selectValues}
                   children={t?.children}
                 />
