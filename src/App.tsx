@@ -1,4 +1,4 @@
-import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import "./App.css";
 import { Toggle, ToggleProps } from "./components/toggle/Toggle";
@@ -13,6 +13,17 @@ const formScheme: ToggleProps[] = [
   },
   {
     title: "testing three",
+    children: [
+      {
+        title: "I'm a child!",
+      },
+      {
+        title: "Me too",
+      },
+      {
+        title: "And me!",
+      },
+    ],
   },
   {
     title: "testing four",
@@ -33,13 +44,15 @@ function App() {
           </Heading>
         </header>
         <section>
-          <SimpleGrid columns={3} spacing={5}>
+          <SimpleGrid columns={{ sm: 2, md: 3 }} spacing={5}>
             {formScheme.map((t) => (
-              <Toggle
-                key={`toggle${t.title}`}
-                title={t.title}
-                selectValues={t?.selectValues}
-              />
+              <Box key={`toggle${t.title}`}>
+                <Toggle
+                  title={t.title}
+                  selectValues={t?.selectValues}
+                  children={t?.children}
+                />
+              </Box>
             ))}
           </SimpleGrid>
         </section>
