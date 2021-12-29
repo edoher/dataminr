@@ -7,10 +7,10 @@ type ToggleListProps = {
 };
 
 const ToggleList = ({ children }: ToggleListProps) => (
-  <Box p={4}>
+  <Box borderTop="1px" borderTopColor="gray.700">
     {children.map((t) => (
-      <Box key={`toggleItem-${t.title}`}>
-        <Toggle title={t.title} selectValues={t?.selectValues} />
+      <Box p={4} key={`toggleItem-${t.title}`}>
+        <Toggle title={t.title} selectValues={t?.selectValues} isChild />
       </Box>
     ))}
   </Box>

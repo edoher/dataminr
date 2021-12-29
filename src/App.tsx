@@ -19,6 +19,7 @@ const formScheme: ToggleProps[] = [
       },
       {
         title: "Me too",
+        selectValues: [10, 50, 100],
       },
       {
         title: "And me!",
